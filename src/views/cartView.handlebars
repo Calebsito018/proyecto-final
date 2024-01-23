@@ -1,0 +1,63 @@
+<main class="main_carts">
+    {{#if cart._id}}
+    {{#if cart.products}}
+    <section class="cart_body">
+        <h1>Mi carrito</h1>
+        <div>
+            <ul class="cart_ul">
+                {{#each cart.products}}
+                <li>
+                    <h3>{{this.product.title}}</h3>
+                    <p>${{this.product.price}}</p>
+                    <p>Cantidad: {{this.quantity}}</p>
+                    <button class="remove-from-cart-button" data-product-id="{{this.product._id}}">Eliminar</button>
+                </li>
+                {{/each}}
+            </ul>
+            <div class="total_container">
+                <p>Total a pagar: ${{total}}</p>
+                <a href="/api/carts/{{cart._id}}/purchase">Finalizar compra</a>
+            </div>
+        </div>
+    </section>
+    {{else}}
+    <section class="no-products-container">
+        <p>El carrito está vacio.</p>
+        <a href="/view/products">Ir a comprar</a>
+    </section>
+    {{/if}}
+    {{else}}
+        <p>Por favor, inicia sesión para agregar productos al carrito.</p>
+    {{/if}}
+</main>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const removeFromCartButtons = document.querySelectorAll(".remove-from-cart-button");
+
+        removeFromCartButtons.forEach((button) => {
+            button.addEventListener("click", async () => {
+                const productId = button.getAttribute("data-product-id");
+                const cartId = "{{cart._id}}"
+
+                try {
+                    const response = await fetch(
+                        `/api/carts/${cartId}/products/${productId}`,
+                        {
+                            method: "delete",
+                        }
+                    );
+                    if (response.status === 200) {
+                        location.reload();
+                    } else {
+                        alert("Error al eliminar el producto del carrito");
+                    }
+                } catch (error) {
+                    console.error(error);
+                    alert("Error al eliminar el producto del carrito");
+                }
+            });
+        });
+
+    });
+
+</script>

@@ -1,0 +1,41 @@
+<main class="main_purchase">
+    <h1>¡Tu pedido fué aprobado!</h1>
+    <section class="order_info_container">
+        <div>
+            <p>Código de orden: {{purchaseData.code}}</p>
+            <p>Fecha de compra: {{purchaseData.time}}</p>
+        </div>
+        <span>{{purchaseData.purchaser}}</span>
+
+    </section>
+    <section class="table_container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio unitario</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#if products}}
+                {{#each products}}
+                <tr>
+                    <td>{{product}}</td>
+                    <td>{{quantity}}</td>
+                    <td>{{price}}</td>
+                    <td>${{totalUnit}}</td>
+                </tr>
+                {{/each}}
+                {{/if}}
+                <tr>
+                    <td>Total:</td>
+                    <td></td>
+                    <td></td>
+                    <td>${{purchaseData.amount}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>

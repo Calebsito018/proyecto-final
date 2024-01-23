@@ -1,0 +1,184 @@
+paths:
+  /api/products/:
+    get:
+      summary: Obtener todas los productos
+      tags:
+        - Productos
+      responses:
+        "200":
+          description: Productos obtenidos correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Product"
+              example:
+                message: Products found
+                results:
+                  - _id: 60b4b0a9e6c3c2b4c8a7b8b2
+                    title: Harry Potter y la piedra filosofal
+                    description: El primer libro de la famosa serie
+                    price: 10
+                    code: HPF101
+                    stock: 24
+                    category: Fantasía
+                    status: true
+                    owner: email@email.com
+                  - _id: 60b4b0a9e6c3c2b4c8a7b8b3
+                    title: Producto 2
+                    description: Descripción del producto 2
+                    price: 12
+                    code: HPF202
+                    stock: 20
+                    category: Terror
+                    status: true
+                    owner: email2@email.com
+        "400":
+          description: Error en el request
+          content:
+            application/json:
+              example:
+                message: Bad request
+        "500":
+          description: Error interno del servidor
+          content:
+            application/json:
+              example:
+                error: error
+    post:
+      summary: Crear producto
+      tags:
+        - Productos
+      responses:
+        "200":
+          description: El producto se creo correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
+              example:
+                message: New Product added
+                product:
+                  _id: 60b4b0a9e6c3c2b4c8a7b8b2
+                  title: Harry Potter y la piedra filosofal
+                  description: El primer libro de la famosa serie
+                  price: 10
+                  code: HPF101
+                  stock: 24
+                  category: Fantasía
+                  status: true
+                  owner: email@email.com
+        "400":
+          description: Error en el request
+          content:
+            application/json:
+              example:
+                message: Bad request
+        "500":
+          description: Error interno del servidor
+          content:
+            application/json:
+              example:
+                error: error
+
+  /api/products/{id}:
+    get:
+      summary: Obtener un productos
+      tags:
+        - Productos
+      responses:
+        "200":
+          description: Producto obtenido correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
+              example:
+                message: Product
+                product:
+                  _id: 60b4b0a9e6c3c2b4c8a7b8b2
+                  title: Harry Potter y la piedra filosofal
+                  description: El primer libro de la famosa serie
+                  price: 10
+                  code: HPF101
+                  stock: 24
+                  category: Fantasía
+                  status: true
+                  owner: email@email.com
+        "400":
+          description: No existe el producto con ese id
+          content:
+            application/json:
+              example:
+                message: Product not found in database.
+        "500":
+          description: Error interno del servidor
+          content:
+            application/json:
+              example:
+                error: error
+    put:
+      summary: Modificar un producto
+      tags:
+        - Productos
+      responses:
+        "200":
+          description: El producto se modifico correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
+              example:
+                message: Product updated successfully
+                product:
+                  _id: 60b4b0a9e6c3c2b4c8a7b8b2
+                  title: Harry Potter y la piedra filosofal
+                  description: El primer libro de la famosa serie
+                  price: 10
+                  code: HPF101
+                  stock: 24
+                  category: Fantasía
+                  status: true
+                  owner: email@email.com
+        "400":
+          description: No existe el producto con ese id o no tiene permisos para editarlo
+          content:
+            application/json:
+              example:
+                message: Product update failed
+        "500":
+          description: Error interno del servidor
+          content:
+            application/json:
+              example:
+                error: error
+    delete:
+      summary: Eliminar un producto
+      tags:
+        - Productos
+      responses:
+        "200":
+          description: El producto se elimino correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
+              example:
+                message: Product deleted successfully
+                product:
+                  _id: 60b4b0a9e6c3c2b4c8a7b8b2
+                  title: Harry Potter y la piedra filosofal
+                  description: El primer libro de la famosa serie
+                  price: 10
+                  code: HPF101
+                  stock: 24
+                  category: Fantasía
+                  status: true
+                  owner: email@email.com
+        "500":
+          description: Error interno del servidor
+          content:
+            application/json:
+              example:
+                error: error

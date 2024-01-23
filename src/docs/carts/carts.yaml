@@ -1,0 +1,159 @@
+paths:
+  /api/carts/:
+    get:
+      summary: Obtener todas los carritos
+      tags:
+        - Carritos
+      responses:
+        "200":
+          description: Carritos obtenidos correctamente
+        "500":
+          description: Error interno del servidor
+          content:
+            application/json:
+              example:
+                error: error
+    post:
+      summary: Crear carrito
+      tags:
+        - Carritos
+      responses:
+        "200":
+          description: El carrito se creo correctamente
+        "500":
+          description: Error interno del servidor
+          content:
+            application/json:
+              example:
+                error: error
+
+  /api/carts/{id}:
+    get:
+      summary: Obtener un carrito
+      tags:
+        - Carritos
+      responses:
+        "200":
+          description: Carrito obtenido correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cart"
+              example:
+                message: Cart
+                product:
+                  _id: 654b36ec60ed1df0ae1fc4e6
+                  products: []
+                  user: 654b36ec60ed1df0ae1fc4e0
+        "400":
+          description: No existe el carrito con ese id
+          content:
+            application/json:
+              example:
+                message: Cart not found
+        "500":
+          description: Error interno del servidor
+          content:
+            application/json:
+              example:
+                error: error
+    put:
+      summary: Modificar un carrito
+      tags:
+        - Carritos
+      responses:
+        "200":
+          description: El carrito se modifico correctamente
+        "500":
+          description: Error interno del servidor
+          content:
+            application/json:
+              example:
+                error: error
+    delete:
+      summary: Eliminar un carrito
+      tags:
+        - Carritos
+      responses:
+        "200":
+          description: El carrito se elimino correctamente
+        "500":
+          description: Error interno del servidor
+          content:
+            application/json:
+              example:
+                error: error
+
+  /api/carts/products/{id}:
+    post:
+      summary: Agregar producto a carrito
+      tags:
+        - Carritos
+      responses:
+        "200":
+          description: Producto agregado al carrito
+        "400":
+          description: No existe el producto o no hay stock disponible
+          content:
+            application/json:
+              example:
+                error: error
+        "500":
+          description: Error interno del servidor
+          content:
+            application/json:
+              example:
+                error: error
+    put:
+      summary: Actualizar cantidad de producto en el carrito.
+      tags:
+        - Carritos
+      responses:
+        "200":
+          description: La cantidad del producto fue actualizada exitosamente
+        "400":
+          description: No existe el producto o la cantidad es invalida
+          content:
+            application/json:
+              example:
+                error: error
+        "500":
+          description: Error interno del servidor
+          content:
+            application/json:
+              example:
+                error: error
+    delete:
+      summary: Eliminar un producto de un carrito.
+      tags:
+        - Carritos
+      responses:
+        "200":
+          description: El producto fue eliminado del carrito
+        "400":
+          description: No existe el producto
+          content:
+            application/json:
+              example:
+                error: error
+        "500":
+          description: Error interno del servidor
+          content:
+            application/json:
+              example:
+                error: error
+
+  /{id}/purchase:
+    get:
+      summary: Obtener los detalles para realizar una compra
+      tags:
+        - Carritos
+      responses:
+        "200":
+          description: Los detalles para realizar una compra fueron obtenidos con exito
+        "500":
+          description: Error interno del servidor
+          content:
+            application/json:
+              example:
+                error: error

@@ -1,0 +1,50 @@
+<main class="main_manage_user">
+    <div>
+        <h1>Gestión de usuarios</h1>
+        <button onclick="handleCleanUsers()" class="btn_clear">Eliminar usuarios inactivos</button>
+    </div>
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Tipo</th>
+                    <th>ID</th>
+                    <th>Ultima conección</th>
+                    <th>Cambiar tipo</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each users}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{email}}</td>
+                    <td>{{role}}</td>
+                    <td>{{id}}</td>
+                    <td>{{lastConnection}}</td>
+                    <td>
+                        <form id="changeRoleForm-{{id}}">
+                            <select name="newRole">
+                                <option value="user">User</option>
+                                <option value="premium">Premium</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                            <button class="btn_change_role" type="button"
+                                onclick="handleChangeRole('{{id}}')">Cambiar</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form id="deleteUserForm-{{id}}">
+                            <button class="btn_delete" type="button"
+                                onclick="handleDeleteUser('{{id}}')">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </section>
+</main>
+<script src="/js/managerUser.js"></script>

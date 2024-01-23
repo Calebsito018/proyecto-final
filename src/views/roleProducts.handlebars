@@ -1,0 +1,22 @@
+<h1>Agregar nuevo producto</h1>
+<form action="/api/products" method="post">
+    <label for="title">Título</label>
+    <input type="text" name="title" >
+    <br><br>
+    <label for="description">Descripcion</label>
+    <textarea  name="description"></textarea>
+    <br><br>
+    <label for="price">Precio</label>
+    <input type="number" step=".01" min="0.01" name="price" >
+    <br><br>
+    <label for="stock">Stock</label>
+    <input type="number" name="stock" min="0">
+    <br><br>
+    <label for="category_id">Categoría</label>
+    <input type="text" name="category">
+    <br><br>
+    <label for="code">Código</label>
+    <input type="text" name="code">
+    <br><br>
+    <button type="submit">Añadir Producto</button>
+</form>

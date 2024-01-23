@@ -1,0 +1,21 @@
+<main class="main_register">
+    <section>
+        <h1>Registrate</h1>
+        <form action="" id="register_form" class="register_form">
+            <input type="text" name="first_name" placeholder="Nombre" required>
+            <input type="text" name="last_name" placeholder="Apellido" required>
+            <input type="text" name="email" placeholder="Email" required>
+            <input type="password" id="password" name="password" placeholder="Contraseña" required >
+            <input type="password" id="password_confirm" placeholder="Confirmar contraseña">
+            <button type="submit">Registrarse</button>
+        </form>
+        <span id="password_error" class="password_error"></span>
+        <div>
+            <p>o registrate con</p>
+            <a href="/api/users/githubSignup">Github</a>
+            {{!-- <button onclick="location.href='/api/users/githubSignup'">GITHUB</button> --}}
+        </div>
+        <p>¿Ya tienes una cuenta? <a href="/login">Inicia Sesion</a></p>
+    </section>
+</main>
+<script src="/js/register.js"></script>

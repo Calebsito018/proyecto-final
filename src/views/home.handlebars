@@ -1,0 +1,44 @@
+{{!-- aca se contendra una lista de todos los productos agregados hasta el momento --}}
+<body>
+    <h1>Tabla de productos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Código</th>
+                <th>Stock</th>
+                <th>Estado</th>
+                <th>Categoría</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products}}
+            <tr>
+                <td>{{this._id}}</td>
+                <td>{{this.title}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.price}}</td>
+                <td>{{this.code}}</td>
+                <td>{{this.stock}}</td>
+                <td>{{this.status}}</td>
+                <td>{{this.category}}</td>
+            </tr>
+            {{/each}}
+            {{#if product}}
+                <tr>
+                    <td>{{product._id}}</td>
+                    <td>{{product.title}}</td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.code}}</td>
+                    <td>{{product.stock}}</td>
+                    <td>{{product.status}}</td>
+                    <td>{{product.category}}</td>
+                </tr>
+            {{/if}}
+        </tbody>
+    </table>
+</body>

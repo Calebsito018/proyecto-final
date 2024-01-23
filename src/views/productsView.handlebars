@@ -1,0 +1,94 @@
+<main class="main_products">
+    <section class="greeting">
+        {{#if user.role}}
+        <h1>Hola, {{user.name}} {{user.first_name}} {{user.last_name}} <span>({{user.role}})</span></h1>
+        {{/if}}
+
+    </section>
+    <h2>Lista de Productos</h2>
+    <section class="products_container">
+        {{#each products}}
+        <div class="product">
+            <h3>{{this.title}}</h3>
+            <div>
+                <img src="{{this.thumbnails}}" alt="{{this.title}}">
+            </div>
+            <p>{{this.description}}</p>
+            <span>${{this.price}}</span>
+            <h5>Disponible {{stock}}</h5>
+            <button class="add-to-cart-button" data-product-id="{{_id}}" data-cart-id="{{cartId}}"
+                data-stock="{{stock}}">
+                Agregar al Carrito</button>
+        </div>
+        {{/each}}
+    </section>
+    <section class="pagination_container">
+        <div class="pagination">
+            <div class="prev_page">
+                {{#if pagination.hasPrevPage}}
+                <a class="pgnt_btn" href="/view/products?page={{pagination.prevPage}}">Anterior</a>
+                {{/if}}
+            </div>
+            <div class="next_page">
+                {{#if pagination.hasNextPage}}
+                <a class="pgnt_btn" href="/view/products?page={{pagination.nextPage}}">Siguiente</a>
+                {{/if}}
+            </div>
+        </div>
+    </section>
+</main>
+{{!--
+<script src="/js/productsView.js"></script> --}}
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+
+        addToCartButtons.forEach((button) => {
+            button.addEventListener("click", async () => {
+                const productId = button.getAttribute("data-product-id");
+                const cartId = "{{cartId}}";
+                const stock = parseInt(button.getAttribute("data-stock"));
+                const userRole = "{{user.role}}"
+
+                if (stock > 0) {
+                    try {
+                        const response = await fetch(
+                            `/api/carts/${cartId}/products/${productId}`,
+                            {
+                                method: "post",
+                            }
+                        );
+                        if (response.status === 200) {
+                            Toastify({
+                                text: "Agregado al carrito",
+                                duration: 2000,
+                                position: 'right',
+                                gravity: 'bottom',
+                                style: {
+                                    background: "rgb(0, 20, 40)",
+                                },
+                            }).showToast();
+                        }
+                        if (response.status === 403) {
+                            Toastify({
+                                text: "No puedes comprar un producto tuyo",
+                                duration: 5000,
+                                position: 'center',
+                                gravity: 'center',
+                                style: {
+                                    background: "rgb(0, 20, 40)",
+                                },
+                            }).showToast();
+                        }
+                    } catch (error) {
+                        console.error(error);
+                        alert("Error al agregar el producto al carrito");
+                    }
+                } else {
+                    alert("No hay stock disponible para este producto");
+                }
+            });
+        });
+    });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

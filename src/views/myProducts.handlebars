@@ -1,0 +1,45 @@
+<h1>Mis productos</h1>
+<section class="products_container">
+    {{#if products}}
+        {{#each products}}
+        <article class="product">
+            <h3>{{this.title}}</h3>
+            <span>${{this.price}}</span>
+            <p>{{this.description}}</p>
+            {{!-- <h5>Disponible {{stock}}</h5> --}}
+            <button class="delete-btn" data-product-id="{{this._id}}">Eliminar</button>
+        </article>
+        {{/each}}
+    {{else}}
+        <p>No hay productos</p>
+        <a href="/newproduct">Añadir productos</a>
+    {{/if}}
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const deleteButton = document.querySelectorAll(".delete-btn");
+        // Evento para eliminar un producto individualmente
+        deleteButton.forEach((button) => {
+            button.addEventListener("click", async () => {
+                const productId = button.getAttribute("data-product-id");
+                try {
+                    const response = await fetch(
+                        `/api/products/${productId}`,
+                        {
+                            method: "delete",
+                        }
+                    );
+                    if (response.status === 200) {
+                        location.reload();
+                    } else {
+                        alert("Error al eliminar el producto");
+                    }
+                } catch (error) {
+                    console.error(error);
+                    alert("Error al eliminar el producto");
+                }
+            });
+        });
+    });
+
+</script>

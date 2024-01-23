@@ -1,0 +1,23 @@
+<h2 class="chat-title" >Chat en tiempo real</h2>
+<span id="nickName" style="display: none;">{{nick}}</span>
+<section class="general-container">
+    <p id="welcomeUser" class="welcome-user"></p>
+    <div id="chat" class="messages-container">
+        <ul id="messages" class="messages">
+            {{#each messages}}
+            <li>{{this.user}}: {{this.message}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="user-chat-container">
+        <form id="messageForm" class="chat-form">
+            <input id="message" class="input-message" type="text" placeholder="Escribir un mensaje" required>
+            <br>
+            <button type="submit" class="btn-submit"> > </button>
+        </form>
+    </div>
+</section>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/chatApp.js"></script>

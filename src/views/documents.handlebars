@@ -1,0 +1,13 @@
+<form action="/api/users/{{uid}}/documents" method="post" enctype="multipart/form-data">
+    <label for="type">Tipo de documento:</label>
+    <select name="type" id="type">
+        <option value="profile">Imagen de perfil</option>
+        <option value="product">Imagen de producto</option>
+        <option value="identification">Identificación</option>
+        <option value="address_proof">Comprobante de domicilio</option>
+        <option value="bank_statement">Estado de cuenta</option>
+    </select>
+    <br>
+    <input type="file" name="document" />
+    <button type="submit">Subir Documento</button>
+</form>

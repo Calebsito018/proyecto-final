@@ -1,0 +1,67 @@
+components:
+  schemas:
+    Cart:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: Identificador unico del carrito
+        products:
+          type: array
+          description: Todos los productos que se agregaron al carrito
+          items:
+            type: object
+            properties:
+              product:
+                type: ObjectId
+                description: Producto que se agrego al carrito
+              quantity:
+                type: number
+                description: Cantidad del mismo producto que se agrego al carrito
+        user:
+          type: ObjectId
+          description: Usuario al que pertenece el carrito
+
+    Product:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: Identificador unico del producto
+        title:
+          type: string
+          description: Titulo del producto
+        description:
+          type: string
+          description: Descripcion del producto
+        price:
+          type: number
+          description: Precio del producto
+        code:
+          type: string
+          description: Codigo del producto
+        stock:
+          type: number
+          description: Cantidad de productos disponibles
+        category:
+          type: string
+          description: Categoria a la que pertenece el producto
+        status:
+          type: boolean
+          description: Indica si el producto esta disponible o no
+        quantity:
+          type: number
+          description: Cantidad de unidades seleccionadas para vender de este producto
+        owner:
+          type: string
+          description: Usuario dueño del producto
+      example:
+        _id: ObjectId("654dd65e7466a8dcd9213cfc")
+        title: Harry Potter y la piedra filosofal
+        description: El primer libro de la famosa serie
+        code: HPF101
+        stock: 24
+        quantity: 1
+        category: Fantasía
+        status: true
+        owner: ObjectId("654b36e960ed1df0ae1fc4e7")

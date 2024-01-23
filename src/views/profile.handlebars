@@ -1,0 +1,44 @@
+<section class="profile">
+    <h2>Perfil</h2>
+    <section class="upd_info">
+        <div>
+            <h2>Actualizar información</h2>
+            <p>Actualice su información asociada a su cuenta.</p>
+        </div>
+        <form action="/api/account/updateinfo" method="post">
+            <label for="firstName">Nombre</label>
+            <input id="firstName" name="firstName" type="text">
+            <label for="lastName">Apellido</label>
+            <input id="lastName" name="lastName" type="text">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="text">
+            <button id="save" type="submit">Actualizar</button>
+        </form>
+    </section>
+    <section class="upd_password">
+        <div>
+            <h2>Cambia tu contraseña</h2>
+            <p>Actualice su contraseña asociada a su cuenta.</p>
+        </div>
+        <form action="/api/account/updatepassword" method="post">
+            <label for="currentPassword">Contraseña actual</label>
+            <input id="currentPassword" name="currentPassword" type="password">
+            <label for="newPassword">Nueva contraseña</label>
+            <input id="newPassword" name="newPassword" type="password">
+            <label for="confirmPassword">Confirmar Contraseña</label>
+            <input id="confirmPassword" name="confirmPassword" type="password">
+            <button type="submit">Guardar</button>
+        </form>
+    </section>
+    <section class="delete_acc">
+        <div>
+            <h2>Elimina tu cuenta</h2>
+            <p>Puedes eliminar tu cuenta aquí. Esta acción no es reversible. Toda la información relacionada con esta
+                cuenta
+                se eliminará permanentemente.</p>
+        </div>
+        <form action="/api/account/deleteaccount" method="post">
+            <button type="submit">Eliminar cuenta</button>
+        </form>
+    </section>
+</section>

@@ -1,0 +1,986 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+.navbar {
+    background: rgb(0, 20, 40);
+}
+
+.navbar-brand {
+    color: #fff;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+.nav-link {
+    color: #fff;
+
+    &:hover {
+        color: #cccccc;
+    }
+
+    &:focus {
+        color: #cccccc;
+    }
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+    color: #cccccc
+}
+
+.dropdown-toggle:focus {
+    color: #cccccc
+}
+
+/* pagina chat */
+.chat-title {
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.nickname-green {
+    color: #76f976;
+}
+
+.nickname-red {
+    background-color: #b53211;
+}
+
+.general-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.messages-container {
+    width: 800px;
+    height: 500px;
+    overflow: auto;
+}
+
+.messages-container {
+    width: 70%;
+    height: 400px;
+    background-color: #e4eae9;
+    border: solid 1px #464654;
+    border-radius: 10px;
+    padding: 10px;
+    overflow: auto;
+}
+
+.user-chat-container {
+    height: 50px;
+    width: 70%;
+    position: relative;
+}
+
+.input-message {
+    margin: 0;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: solid 2px #3e3e4a;
+    padding: 2px 50px 2px 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #3e3e4a;
+    background-color: #464654;
+    background-color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn-submit {
+    background-color: #254053;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    bottom: 7px;
+    right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.messages li {
+    list-style: none;
+    font-size: 1.2rem;
+    color: #3e3e4a;
+}
+
+.messages li span {
+    font-family: sans-serif;
+    color: #4a4a8b;
+    font-weight: bold;
+}
+
+/* ------------ ProductsView  -------------- */
+.greeting {
+    padding-top: 20px;
+    /* padding-left: 10px; */
+
+}
+
+.greeting h1 {
+    font-size: 1.5rem;
+    /* margin-bottom: 5px; */
+
+}
+
+.greeting h1 span {
+    color: #555765;
+    font-size: 1rem;
+}
+
+.greeting a button {
+    background-color: #254053;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.main_products h2 {
+    font-size: 1.2rem;
+    padding: 30px 10px 20px 0;
+}
+
+.products_container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.product {
+    background-color: #ffffffad;
+    border-radius: 10px;
+    height: 350px;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.product h3 {
+    background-color: rgba(255, 255, 255, 0.427);
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    position: absolute;
+    padding: 4px;
+    color: #222222;
+}
+
+.product div {
+    height: 150px;
+    width: 100%;
+}
+
+.product div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.product p {
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 4px;
+}
+
+.product span {
+    position: absolute;
+    bottom: 50px;
+    right: 4px;
+    font-size: 1.2rem;
+}
+
+.product h5 {
+    font-size: 0.9rem;
+    position: absolute;
+    bottom: 50px;
+    left: 4px;
+    color: #000;
+    margin: 0;
+}
+
+.product .add-to-cart-button {
+    position: absolute;
+    bottom: 0;
+    background-color: #2d476c;
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    padding: 10px 15px;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        background-color: #45638c;
+    }
+}
+
+.pagination_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 20px 0;
+}
+
+.pagination {
+    height: 20px;
+    width: 230px;
+    position: relative;
+}
+
+.prev_page {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-decoration: none;
+}
+
+.next_page {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    text-decoration: none;
+
+}
+
+.pgnt_btn {
+    text-decoration: none;
+}
+
+/* ------------ CartsView  -------------- */
+.main_carts {
+    height: auto;
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+.main_carts .cart_body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.main_carts .cart_body h1 {
+    font-size: 1.5rem;
+}
+
+.main_carts .cart_body div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 30px;
+}
+
+.main_carts .cart_body div .cart_ul {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+.main_carts .cart_body div .cart_ul li {
+    list-style: none;
+    position: relative;
+    border-radius: 12px;
+    padding: 10px;
+    background-color: #fff;
+}
+.main_carts .cart_body div .cart_ul li h3{
+    font-size: 1.3rem;
+}
+.main_carts .cart_body div .cart_ul li button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #c93a3a;
+    padding: 4px 12px;
+    border-radius: 4px;
+    border: none;
+    opacity: 0.9;
+    color: #fff;
+    transition: background-color 0.4s ease;
+    &:hover {
+        background-color: #8c2a2a;
+    }
+}
+.main_carts .cart_body div .total_container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main_carts .cart_body div .total_container p{
+    font-size: 1.1rem;
+}
+.main_carts .cart_body div .total_container a {
+    text-decoration: none;
+    width: max-content;
+    background-color: #2d476c;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.4s ease;
+    &:hover {
+        background-color: #243856;
+    }
+}
+
+.main_carts .no-products-container a {
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: #2d476c;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: #45638c;
+    }
+}
+
+/* ------------ Login  -------------- */
+.main_login {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_login section {
+    background-color: #ffffff;
+    border-radius: 5px;
+    height: 500px;
+    width: 470px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.main_login section h1 {
+    font-size: 1.5rem;
+}
+
+.main_login section a {
+    text-decoration: none;
+    color: #0062be;
+}
+
+.main_login section .login_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.main_login section p {
+    font-size: 0.9rem;
+    margin-top: 15px;
+    color: #254053;
+}
+
+.main_login section p a {
+    text-decoration: none;
+    color: #0062be;
+}
+
+.main_login section span {
+    color: #ff4c4c;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+.main_login section div p {
+    text-align: center;
+    margin: 15px 0 8px;
+}
+
+.main_login section div a {
+    text-decoration: none;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+.login_form {
+    margin-top: 20px;
+}
+
+.login_form input {
+    margin: 5px 0;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    border: solid 1px #31404a8a;
+    padding: 0 10px;
+}
+
+.password_container {
+    position: relative;
+}
+
+.password_container .toggle_password {
+    cursor: pointer;
+    position: absolute;
+    margin: 0;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    user-select: none;
+}
+
+.login_form button {
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: #2d476c;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #45638c;
+    }
+}
+
+
+/* ------------ Register  -------------- */
+.main_register {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_register section {
+    background-color: #ffffff;
+    border-radius: 5px;
+    height: 540px;
+    width: 470px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main_register section h1 {
+    font-size: 1.5rem;
+}
+
+.main_register section .register_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.password_error {
+    color: #ff4c4c;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+.main_register section div p {
+    margin: 15px 0 8px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.main_register section div a {
+    text-decoration: none;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+.main_register section p {
+    text-decoration: none;
+    margin-top: 10px;
+    color: #254053;
+}
+
+.main_register section p a {
+    text-decoration: none;
+    color: #2371ba;
+}
+
+.register_form {
+    margin-top: 20px;
+
+}
+
+.register_form input {
+    margin: 5px 0;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    border: solid 1px #31404a8a;
+    padding: 0 10px;
+}
+
+.register_form button {
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: #2d476c;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #45638c;
+    }
+}
+
+/* ------------ RealTimeProducts  -------------- */
+
+.main_realtimeproducts h1 {
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.manager_prod_container {
+    display: flex;
+    justify-content: center;
+}
+
+.manager_prod_container .add_prod_cont {
+    width: 50%;
+    background-color: #f6f6f6;
+}
+
+.add_prod_cont h2 {
+    font-size: 1.2rem;
+    color: #254053;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.add_prod_cont form {
+    background-color: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add_prod_cont form label {
+    width: 80%;
+    color: #31404a;
+    font-size: 0.9rem;
+}
+
+.add_prod_cont form input {
+    margin: 3px;
+    width: 80%;
+    height: 30px;
+    border-radius: 4px;
+    padding: 0 10px;
+    border: solid 1px #888888;
+}
+
+.btnAdd {
+    cursor: pointer;
+    padding: 5px;
+    background-color: #157d1e;
+    color: white;
+    border: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.3s;
+    padding: 8px 10px;
+    width: 80%;
+    margin-top: 5px;
+}
+
+.btnAdd:hover {
+    background-color: #134f18;
+}
+
+.manager_prod_container .del_prod_cont {
+    width: 50%;
+    background-color: #f6f6f6;
+}
+
+.del_prod_cont h2 {
+    font-size: 1.2rem;
+    color: #254053;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.del_prod_cont form {
+    background-color: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.del_prod_cont form label {
+    width: 80%;
+    color: #31404a;
+    font-size: 0.9rem;
+}
+
+.del_prod_cont form input {
+    margin: 3px;
+    width: 80%;
+    height: 30px;
+    border-radius: 4px;
+    padding: 0 10px;
+    border: solid 1px #888888;
+}
+
+.btnDel {
+    cursor: pointer;
+    padding: 5px;
+    background-color: #ff4717;
+    color: white;
+    border: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.btnDel:hover {
+    background-color: #b53211;
+}
+
+.table_container h2 {
+    font-size: 1.2rem;
+    color: #254053;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+table {
+    background-color: #f6f6f6;
+    width: 100%;
+}
+
+th {
+    background-color: rgba(255, 0, 0, 0.23);
+    margin: 5px;
+    padding: 5px;
+}
+
+td {
+    font-size: 0.9rem;
+    padding: 5px;
+}
+
+/* cart */
+.no-products-container {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.no-products-container a {
+    text-decoration: none;
+    background: rgb(0, 20, 40);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: rgb(43, 47, 51);
+    }
+}
+
+/* ------------ Profile  -------------- */
+.profile h2 {
+    font-size: 1.2rem;
+}
+
+.profile .upd_info {
+    display: flex;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(88, 88, 212, 0.586);
+}
+
+.profile .upd_info div {
+    width: 400px;
+}
+
+.profile .upd_info form {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 20px;
+    width: 500px;
+}
+
+.profile .upd_info form input,
+.profile .upd_password form input {
+    margin-bottom: 5px;
+    width: 100%;
+    border-radius: 4px;
+    padding: 6px 12px;
+    background-color: #ffffff8e;
+}
+
+.profile .upd_info form button,
+.profile .upd_password form button {
+    background-color: #2d476c;
+    color: #FFF;
+    font-weight: 500;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #45638c;
+    }
+}
+
+.profile .upd_password {
+    display: flex;
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(88, 88, 212);
+}
+
+.profile .upd_password form {
+    padding-left: 20px;
+    width: 500px;
+}
+
+.profile .upd_password div {
+    width: 400px;
+}
+
+.profile .upd_password form {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile .delete_acc {
+    display: flex;
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(88, 88, 212);
+
+}
+
+.profile .delete_acc form {
+    padding-left: 20px;
+    width: 500px;
+}
+
+.profile .delete_acc form button {
+    background-color: #c93a3a;
+    color: #FFF;
+    font-weight: 500;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #ce5b5b;
+    }
+}
+
+.profile .delete_acc div {
+    width: 400px;
+}
+
+/* ------------ manageUsers  -------------- */
+.main_manage_user {
+    padding: 40px 0;
+}
+
+.main_manage_user div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.main_manage_user div h1 {
+    font-size: 1.7rem;
+}
+
+.main_manage_user div .btn_clear {
+    background-color: #ea9148;
+    &:hover {
+        background-color: #d67e35;
+    }
+}
+
+.main_manage_user div .main_manage_user section {
+    border: solid #ddd 1px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.main_manage_user section table thead {
+    background-color: #fff;
+}
+
+.main_manage_user section table thead tr {
+    background-color: #fff;
+}
+
+.main_manage_user section table thead tr th {
+    background-color: #fff;
+}
+
+.main_manage_user section table thead tr th,
+.main_manage_user table tbody tr td {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.main_manage_user section table thead tr th {
+    background-color: #f2f2f2;
+}
+
+.main_manage_user section table thead tr th:first-child,
+.main_manage_user section table tbody tr td:first-child {
+    border-top: none;
+}
+
+.btn_change_role {
+    background-color: rgb(88, 88, 212);
+
+    &:hover {
+        background-color: rgb(52, 52, 143);
+    }
+}
+
+.btn_delete {
+    background-color: #c93a3a;
+
+    &:hover {
+        background-color: #9a2727;
+    }
+}
+
+.btn_change_role,
+.btn_delete,
+.btn_clear {
+    border: none;
+    padding: 4px 12px;
+    border-radius: 12px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+}
+
+/* ------------ purchase-detail  -------------- */
+.main_purchase{
+    padding-top: 30px;
+}
+.main_purchase .order_info_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 30px;
+}
+.main_purchase .order_info_container div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.main_purchase .order_info_container div p{
+    margin: 0;
+}
+.main_purchase h1{
+    text-align: center;
+    font-size: 1.7rem;
+}
+.main_purchase .table_container{
+    margin-top: 30px;
+    border: solid #ddd 1px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.main_purchase .table_container table thead {
+    background-color: #fff;
+}
+
+.main_purchase .table_container table thead tr {
+    background-color: #fff;
+}
+
+.main_purchase .table_container table thead tr th {
+    background-color: #fff;
+}
+
+.main_purchase .table_container table thead tr th,
+.main_purchase table tbody tr td {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.main_purchase .table_container table thead tr th {
+    background-color: #f2f2f2;
+}
+
+.main_purchase .table_container table thead tr th:first-child,
+.main_purchase .table_container table tbody tr td:first-child {
+    border-top: none;
+}

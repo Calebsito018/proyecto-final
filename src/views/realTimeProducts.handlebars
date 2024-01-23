@@ -1,0 +1,74 @@
+<body>
+    <main class="main_realtimeproducts">
+        <h1>Manejo de productos en tiempo real</h1>
+        <section class="manager_prod_container">
+            <div class="add_prod_cont">
+                <h2>Agregar productos</h2>
+                <form id="addProductForm">
+                    <label for="title">Titulo</label>
+                    <input type="text" id="title" name="title" required>
+                    <label for="description">Descripcion</label>
+                    <input type="text" id="description" name="description" required>
+                    <label for="price">Precio</label>
+                    <input type="number" id="price" name="price" required>
+                    <label for="code">Code</label>
+                    <input type="text" id="code" name="code" required>
+                    <label for="stock">Stock</label>
+                    <input type="number" id="stock" name="stock" required>
+                    <label for="category">Categoria</label>
+                    <input type="text" id="category" name="category" required>
+                    <button type="submit" id="btnAdd" class="btnAdd">Agregar a la base de datos</button>
+                </form>
+            </div>
+            <div class="del_prod_cont">
+                <h2>Eliminar productos por ID</h2>
+                <form id="deleteProductForm">
+                    <label for="pid">ID del producto</label>
+                    <input type="text" id="pid" name="pid" required>
+                    <button type="submit" id="btnDel" class="btnDel">Eliminar de la base de datos</button>
+                </form>
+            </div>
+        </section>
+        <section class="table_container">
+            <h2>Tabla de productos</h2>
+            <table id="productsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Titulo</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                        <th>Codigo</th>
+                        <th>Stock</th>
+                        <th>Estado</th>
+                        <th>Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#if products.length}}
+                    {{#each products}}
+                    <tr>
+                        <td>{{_id}}</td>
+                        <td>{{title}}</td>
+                        <td>{{description}}</td>
+                        <td>${{price}}</td>
+                        <td>{{code}}</td>
+                        <td>{{stock}}</td>
+                        <td>{{status}}</td>
+                        <td>{{category}}</td>
+                    </tr>
+                    {{/each}}
+                    {{else}}
+                    <tr>
+                        <td colspan="8">No hay productos disponibles</td>
+                    </tr>
+                    {{/if}}
+                </tbody>
+            </table>
+        </section>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/index.js"></script>
+
+    </main>
+</body>

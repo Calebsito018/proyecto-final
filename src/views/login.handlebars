@@ -1,0 +1,23 @@
+<main class="main_login">
+    <section>
+        <h1>Iniciar Sesion</h1>
+        <form action="" id="login_form" class="login_form" method="post">
+            <input type="text" name="email" placeholder="Email" required>
+            <div class="password_container">
+                <input type="password" name="password" id="password" class="password" placeholder="Contraseña" required>
+                <span id="togglePassword" class="toggle_password">👁️</span>
+            </div>
+            <button type="submit"> Ingresar</button>
+        </form>
+        <span id="error_login"></span>
+        <div>
+            <p>o inicia sesión con</p>
+            <a href="/api/users/github">Github</a>
+            {{!-- <button onclick="location.href='/api/users/github'">GITHUB</button> --}}
+        </div>
+        <p>¿No tienes una cuenta? <a href="/register">Registrate</a></p>
+        <a href="/recoverpass">¿Olvidaste tu contraseña?</a>
+
+    </section>
+</main>
+<script src="/js/login.js"></script>
